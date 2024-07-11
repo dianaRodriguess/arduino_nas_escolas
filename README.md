@@ -86,6 +86,7 @@ Materias necessários
 
 #### Reação endotérmica
 <img src="imgs/circ2-azul.png" width="450"/>
+
 #### Estado normal 
 <img src="imgs/circ1-verd.png" width="450"/>
 
