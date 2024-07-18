@@ -48,9 +48,8 @@ Feito no Fritzing
 
 ## Detalhes da Simulação:
 
-### Configuração do Sensor de Temperatura :
-O DS18B20 fornece uma leitura digital da temperatura. A leitura é obtida diretamente no código Arduino e Python.
-O DS18B20 fornece um sinal digital (8 bits) da temperatura. A leitura é obtida diretamente no código Arduino e/ou Python. Para lermos esse sinal precisamos do resistor de Pull UP. Caso contrário, obtemos uma leitura falsa da temperatura. 
+### Configuração do Sensor de Temperatura:
+O DS18B20 fornece um sinal digital (8 bits) da temperatura. A leitura é obtida diretamente no código Arduino e/ou Python. Para obtermos esse sinal precisamos do resistor de Pull UP. Caso contrário, obtemos uma leitura falsa da temperatura. 
 
 O resistor de Pull UP serve para o sensor adquirir o status 1 ou 0.
 
