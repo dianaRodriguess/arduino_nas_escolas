@@ -15,7 +15,7 @@ Materias necessários
     a. Placa Arduino com cabo USB;
     b. Resistor de Pull UP 4.7kΩ - 10kΩ;
     c. Sensor de temperatura DS18B20 à prova d’água;
-    d. Display LCD 16x2;
+    d. Display LCD 16x2 com I2C;
     e. Protoboard;
     f. Cabos jumper;
     g. Arduino IDE ou VSCode;
@@ -25,11 +25,16 @@ Materias necessários
 ## Montagem do Circuito:
 ### Sensor de Temperatura DS18B20 (sonda):
 
-    GND ao GND do Arduino;
-    Vcc ao 5V do Arduino;
-    DATA a um pino digital (2-13) do Arduino;
-    Resistor Pull UP entre o VCC e o DATA do sensor.
-        
+    VCC: Conectado ao 5V do Arduino
+    GND: Conectado ao GND do Arduino
+    DATA: Conectado ao pino digital 2 do Arduino com um resistor de pull-up de 4.7kΩ entre VCC e DATA
+
+### Display LCD 16x2 com I2C:
+
+    Vcc: Conectado ao 5V do Arduino
+    GND: Conectado ao GND do Arduino
+    SDA: Conectado ao pino A4 do Arduino
+    SCL: Conectado ao pino A5 do Arduino
         
 ## Imagens Circuito:
 #### Circuito completo
