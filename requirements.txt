@@ -1,0 +1,10 @@
+Requirements for Arduino IDE
+
+    OneWire
+    DallasTemperature
+
+Requirements for python
+
+    Python3.10
+    pyfirmata
+    w1thermsensor
