@@ -1,36 +1,29 @@
-const int tempPin = A0;  // Pino do sensor de temperatura LM35
-const int redPin = 9;    // Pino do LED RGB (vermelho)
-const int greenPin = 10; // Pino do LED RGB (verde)
-const int bluePin = 11;  // Pino do LED RGB (azul)
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+//variavel do pino que esta plugado o Sensor
+//Neste caso é o pino 2, mais pode usar qualquer pino digital
+#define ONE_WIRE_BUS 2
+
+//Instacia o Objeto oneWire e Seta o pino do Sensor para iniciar as leituras
+OneWire oneWire(ONE_WIRE_BUS);
+
+//Repassa as referencias do oneWire para o Sensor Dallas (DS18B20)
+DallasTemperature sensor(&oneWire);
+
 
 void setup() {
   Serial.begin(9600);
-  pinMode(redPin, OUTPUT);
-  pinMode(greenPin, OUTPUT);
-  pinMode(bluePin, OUTPUT);
+  Serial.println("Sensor de temperatura Dallas DS18b20");
+  //Inicia o objeto da biblioteca do Dallas
+  sensor.begin();
 }
 
 void loop() {
-  int tempValue = analogRead(tempPin);
-  float tempCelsius = (tempValue / 1024.0) * 500.0;
-  Serial.print("Temperatura: ");
-  Serial.print(tempCelsius);
-  Serial.println(" °C");
-
-  if (tempCelsius < 25) {
-    setColor(0, 0, 255); // Azul (Endotérmica)
-  } else if (tempCelsius > 30) {
-    setColor(255, 0, 0); // Vermelho (Exotérmica)
-  } else {
-    setColor(0, 255, 0); // Verde (Normal)
-  }
-
-  delay(1000);
+  sensor.requestTemperatures();
+  // A temperatura em Celsius para o dispositivo 1 no índice 0 (é possivel ligar varios sensores usando a mesma porta do arduino)
+  float leitura = sensor.getTempCByIndex(0);
+  //Imprime na serial a varivel que recebe os dados do Sensor
+  Serial.println(leitura);
+  delay(100);
 }
-
-void setColor(int red, int green, int blue) {
-  analogWrite(redPin, red);
-  analogWrite(greenPin, green);
-  analogWrite(bluePin, blue);
-}
-
