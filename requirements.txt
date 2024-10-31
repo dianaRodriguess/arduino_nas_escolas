@@ -6,5 +6,4 @@ Requirements for Arduino IDE
 Requirements for python
 
     Python3.10
-    pyfirmata
-    w1thermsensor
+    pyserial
